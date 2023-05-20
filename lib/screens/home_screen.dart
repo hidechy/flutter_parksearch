@@ -16,6 +16,19 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.map),
+                  ),
+                ],
+              ),
+            ),
             Expanded(
               child: Consumer<ParkViewModel>(
                 builder: (context, model, child) {
@@ -26,6 +39,11 @@ class HomeScreen extends StatelessWidget {
                       : ListView.builder(
                           itemCount: model.parks.length,
                           itemBuilder: (context, index) {
+                            final ll = [
+                              model.parks[index].latitude,
+                              model.parks[index].longitude,
+                            ];
+
                             return Container(
                               padding: const EdgeInsets.all(5),
                               margin: const EdgeInsets.only(bottom: 5),
@@ -41,6 +59,21 @@ class HomeScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(model.parks[index].name),
+                                  Row(
+                                    children: [
+                                      const SizedBox(width: 20),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(ll.join(' / ')),
+                                            Text(model.parks[index].address),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ],
                               ),
                             );
