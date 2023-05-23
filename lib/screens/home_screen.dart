@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:parksearch/screens/components/map_alert.dart';
+import 'package:parksearch/screens/components/park_dialog.dart';
 import 'package:provider/provider.dart';
 
 import '../viewmodels/park_view_model.dart';
@@ -23,7 +25,22 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Container(),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => MapAlert(),
+                      //   ),
+                      // );
+                      //
+                      //
+                      //
+
+                      ParkDialog(
+                        context: context,
+                        widget: MapAlert(),
+                      );
+                    },
                     icon: const Icon(Icons.map),
                   ),
                 ],
