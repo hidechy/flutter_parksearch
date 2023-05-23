@@ -55,24 +55,39 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              child: Column(
+                              child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(model.parks[index].name),
-                                  Row(
-                                    children: [
-                                      const SizedBox(width: 20),
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                  CircleAvatar(
+                                    child: Text(
+                                      model.parks[index].id.toString(),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(model.parks[index].name),
+                                        Row(
                                           children: [
-                                            Text(ll.join(' / ')),
-                                            Text(model.parks[index].address),
+                                            const SizedBox(width: 20),
+                                            Expanded(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(ll.join(' / ')),
+                                                  Text(model
+                                                      .parks[index].address),
+                                                ],
+                                              ),
+                                            ),
                                           ],
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
